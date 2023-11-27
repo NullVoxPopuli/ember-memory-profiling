@@ -61,12 +61,17 @@ class Automate extends GC {
 
       See console after running this.
 
-      <button {{on 'click' this.run}}>Run</button>
+      {{#if this.isRunning}}running...{{/if}}
+
+      <button {{on 'click' this.run}} disabled={{this.isRunning}}>Run</button>
     </fieldset>
 
   </template>
 
+  @tracked isRunning = false;
+
   run = async () => {
+    this.isRunning = true;
     let attrMap = {
     '@ember/component': 'data-ember',
     '@glimmer/component': 'data-glimmer',
@@ -82,6 +87,7 @@ class Automate extends GC {
       }
       console.groupEnd(scenario);
     }
+    this.isRunning = false;
   }
 }
 
