@@ -78,6 +78,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "decorator-transforms": "^1.0.1",
     "ember-template-imports": "^4.0.0"
   }
 }
